@@ -1,0 +1,19 @@
+# {$SITE_ADDRESS} est fourni par Docker Compose :
+#   - production : "2fgeneral.fr, www.2fgeneral.fr"  → HTTPS Let's Encrypt automatique
+#   - test local : ":80"                              → HTTP simple, sans certificat
+{$SITE_ADDRESS} {
+	encode zstd gzip
+
+	# API et fichiers médias → backend (réseau interne Docker)
+	@backend path /api/* /uploads/*
+	handle @backend {
+		reverse_proxy backend:4000
+	}
+
+	# Le reste → SPA (fallback index.html pour le routage côté client)
+	handle {
+		root * /srv
+		try_files {path} /index.html
+		file_server
+	}
+}
