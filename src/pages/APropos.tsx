@@ -8,6 +8,7 @@ import type { TeamMember } from "../lib/types";
 import PageHeader from "../components/PageHeader";
 import Reveal from "../components/Reveal";
 import Counter from "../components/Counter";
+import Seo from "../components/Seo";
 
 const AVATAR_BG = ["bg-clay-600", "bg-ink", "bg-clay-700", "bg-clay-500"];
 
@@ -30,6 +31,11 @@ export default function APropos() {
 
   return (
     <div>
+      <Seo
+        title="L'équipe — Entreprise familiale de maçonnerie à Marignane"
+        description="Fondée en 2021 par les frères Anthony et Jeremy Freitas, la Sarl 2F Général est une entreprise familiale de maçonnerie générale à Marignane, au service de vos projets dans les Bouches-du-Rhône."
+        path="/a-propos"
+      />
       <PageHeader
         title="L'équipe 2F Général"
         subtitle="Des artisans passionnés, le casque vissé et le sourire en plus."

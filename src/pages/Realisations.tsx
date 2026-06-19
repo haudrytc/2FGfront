@@ -3,6 +3,7 @@ import { api } from "../lib/api";
 import type { Project } from "../lib/types";
 import PageHeader from "../components/PageHeader";
 import ProjectCard from "../components/ProjectCard";
+import Seo from "../components/Seo";
 
 export default function Realisations() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -25,6 +26,11 @@ export default function Realisations() {
 
   return (
     <div>
+      <Seo
+        title="Réalisations — Chantiers de maçonnerie & construction"
+        description="Découvrez les réalisations de la Sarl 2F Général : construction de maison, rénovation, extension, façade, terrasse et piscine à Marignane et dans les Bouches-du-Rhône."
+        path="/realisations"
+      />
       <PageHeader
         title="Nos réalisations"
         subtitle="Découvrez une sélection de nos chantiers : construction, rénovation, extension et plus encore."

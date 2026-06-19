@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Facebook } from "lucide-react";
 import Logo from "./Logo";
 import { useSettings } from "../lib/useSettings";
+import { CITIES, SERVICES } from "../lib/seo";
 
 export default function Footer() {
   const { settings } = useSettings();
@@ -70,6 +71,21 @@ export default function Footer() {
               <Facebook size={16} /> Facebook
             </a>
           )}
+        </div>
+      </div>
+
+      {/* Bandeau SEO : prestations + villes desservies (référencement local) */}
+      <div className="border-t border-white/10">
+        <div className="container-page py-8 text-xs text-sand-100/55">
+          <p className="font-semibold uppercase tracking-widest text-clay-300">Nos prestations</p>
+          <p className="mt-2 leading-relaxed">{SERVICES.join(" · ")}</p>
+          <p className="mt-5 font-semibold uppercase tracking-widest text-clay-300">
+            Maçonnerie dans les Bouches-du-Rhône
+          </p>
+          <p className="mt-2 leading-relaxed">
+            La Sarl 2F Général intervient pour vos travaux de maçonnerie, construction, rénovation et
+            piscine à {CITIES.join(", ")}.
+          </p>
         </div>
       </div>
 

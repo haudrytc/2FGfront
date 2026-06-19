@@ -5,6 +5,8 @@ import { ArrowLeft, MapPin, Calendar, Tag, ArrowRight } from "lucide-react";
 import { api } from "../lib/api";
 import type { Project } from "../lib/types";
 import Lightbox from "../components/Lightbox";
+import Seo from "../components/Seo";
+import { BUSINESS, absoluteUrl } from "../lib/seo";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -50,8 +52,36 @@ export default function ProjectDetail() {
     ? [{ id: "cover", url: project.coverImage, caption: "", order: 0 }]
     : [];
 
+  const metaTitle = `${project.title}${project.location ? ` — ${project.category} à ${project.location}` : ""}`;
+  const metaDesc =
+    project.excerpt ||
+    `${project.title} : ${project.category.toLowerCase()} réalisé par ${BUSINESS.name}${
+      project.location ? ` à ${project.location}` : ""
+    }.`;
+
   return (
     <div className="pt-20">
+      <Seo
+        title={metaTitle}
+        description={metaDesc}
+        path={`/realisations/${project.slug}`}
+        image={project.coverImage || project.images[0]?.url || undefined}
+        type="article"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Accueil", item: absoluteUrl("/") },
+            { "@type": "ListItem", position: 2, name: "Réalisations", item: absoluteUrl("/realisations") },
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: project.title,
+              item: absoluteUrl(`/realisations/${project.slug}`),
+            },
+          ],
+        }}
+      />
       {/* En-tête image */}
       <section className="relative h-[55vh] min-h-[380px] overflow-hidden">
         <img

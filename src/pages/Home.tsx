@@ -13,6 +13,10 @@ import { api } from "../lib/api";
 import { useSettings } from "../lib/useSettings";
 import type { Project, Service } from "../lib/types";
 import { ParallaxImage } from "../components/Parallax";
+import Seo from "../components/Seo";
+import { localBusinessJsonLd } from "../lib/seo";
+import BuildScene from "../components/BuildScene";
+import PriceSimulator from "../components/PriceSimulator";
 import Reveal from "../components/Reveal";
 import Counter from "../components/Counter";
 import Icon from "../components/Icon";
@@ -44,6 +48,12 @@ export default function Home() {
 
   return (
     <div>
+      <Seo
+        title="Maçon à Marignane — Maçonnerie, Construction & Rénovation"
+        description="Sarl 2F Général, entreprise de maçonnerie générale à Marignane (13). Construction de maison, rénovation, extension, gros œuvre, façade, carrelage et piscine dans les Bouches-du-Rhône. Devis gratuit."
+        path="/"
+        jsonLd={localBusinessJsonLd()}
+      />
       {/* ---------- HERO ---------- */}
       <section className="relative h-screen min-h-[640px]">
         <ParallaxImage src={HERO_IMG} speed={140} overlay="bg-ink/65" className="h-full">
@@ -141,13 +151,13 @@ export default function Home() {
           <p className="mt-5 text-ink/70">{settings.about_text}</p>
           <div className="mt-8 grid grid-cols-2 gap-6">
             <div>
-              <div className="text-3xl font-extrabold text-clay-600">
+              <div className="text-3xl font-extrabold text-gradient-clay">
                 <Counter to={parseInt(settings.projects_count || "150", 10)} suffix="+" />
               </div>
               <div className="text-sm text-ink/60">Chantiers réalisés</div>
             </div>
             <div>
-              <div className="text-3xl font-extrabold text-clay-600">100%</div>
+              <div className="text-3xl font-extrabold text-gradient-clay">100%</div>
               <div className="text-sm text-ink/60">Clients satisfaits</div>
             </div>
           </div>
@@ -163,7 +173,7 @@ export default function Home() {
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow">Notre savoir-faire</span>
             <h2 className="mt-3 text-3xl font-extrabold text-ink sm:text-4xl">
-              Tous vos travaux, du gros œuvre aux finitions
+              Tous vos travaux, du gros œuvre <span className="text-gradient-clay">aux finitions</span>
             </h2>
             <p className="mt-4 text-ink/60">
               Une maîtrise complète du bâtiment pour mener vos projets de A à Z.
@@ -185,6 +195,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ---------- SIMULATEUR DE DEVIS ---------- */}
+      <PriceSimulator where="home" />
+
+      {/* ---------- CHANTIER QUI SE CONSTRUIT (scroll) ---------- */}
+      <BuildScene />
 
       {/* ---------- CTA PARALLAXE ---------- */}
       <ParallaxImage src={CTA_IMG} speed={100} overlay="bg-ink/75" className="py-28">

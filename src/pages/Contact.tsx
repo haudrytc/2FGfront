@@ -4,6 +4,8 @@ import { MapPin, Phone, Mail, Clock, Send, CheckCircle2 } from "lucide-react";
 import { api } from "../lib/api";
 import { useSettings } from "../lib/useSettings";
 import PageHeader from "../components/PageHeader";
+import Seo from "../components/Seo";
+import PriceSimulator from "../components/PriceSimulator";
 
 export default function Contact() {
   const { settings } = useSettings();
@@ -36,6 +38,11 @@ export default function Contact() {
 
   return (
     <div>
+      <Seo
+        title="Contact & Devis gratuit — Maçon à Marignane"
+        description="Demandez un devis gratuit à la Sarl 2F Général pour vos travaux de maçonnerie, construction, rénovation ou piscine à Marignane et dans les Bouches-du-Rhône."
+        path="/contact"
+      />
       <PageHeader
         title="Contactez-nous"
         subtitle="Un projet, une question ? Écrivez-nous, nous vous répondons rapidement."
@@ -128,6 +135,8 @@ export default function Contact() {
           )}
         </div>
       </section>
+
+      <PriceSimulator where="contact" />
     </div>
   );
 }

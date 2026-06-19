@@ -4,8 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import Logo from "./Logo";
 import { useSettings } from "../lib/useSettings";
+import { parseSimConfig } from "../lib/simulator";
 
-const links = [
+const baseLinks = [
   { to: "/", label: "Accueil" },
   { to: "/realisations", label: "Réalisations" },
   { to: "/a-propos", label: "L'équipe" },
@@ -17,6 +18,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { settings } = useSettings();
   const { pathname } = useLocation();
+
+  // Ajoute le lien "Devis" si le simulateur est configuré en page dédiée.
+  const links = [...baseLinks];
+  if (parseSimConfig(settings).placement === "page") {
+    links.splice(3, 0, { to: "/devis", label: "Devis" });
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);

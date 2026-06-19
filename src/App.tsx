@@ -7,6 +7,7 @@ import Realisations from "./pages/Realisations";
 import ProjectDetail from "./pages/ProjectDetail";
 import APropos from "./pages/APropos";
 import Contact from "./pages/Contact";
+import Devis from "./pages/Devis";
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
 import RequireAuth from "./components/RequireAuth";
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/realisations/:slug" element={<ProjectDetail />} />
           <Route path="/a-propos" element={<APropos />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/devis" element={<Devis />} />
 
           <Route path="/admin/login" element={<Login />} />
           <Route

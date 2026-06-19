@@ -6,6 +6,8 @@ import {
   Users,
   Mail,
   Settings as SettingsIcon,
+  Calculator,
+  Facebook,
   LogOut,
   ExternalLink,
   Menu,
@@ -18,14 +20,18 @@ import ServicesAdmin from "./sections/ServicesAdmin";
 import TeamAdmin from "./sections/TeamAdmin";
 import MessagesAdmin from "./sections/MessagesAdmin";
 import SettingsAdmin from "./sections/SettingsAdmin";
+import SimulatorAdmin from "./sections/SimulatorAdmin";
+import FacebookAdmin from "./sections/FacebookAdmin";
 
-type Tab = "projects" | "services" | "team" | "messages" | "settings";
+type Tab = "projects" | "services" | "team" | "messages" | "simulator" | "facebook" | "settings";
 
 const TABS: { id: Tab; label: string; icon: typeof LayoutGrid }[] = [
   { id: "projects", label: "Réalisations", icon: LayoutGrid },
   { id: "services", label: "Savoir-faire", icon: Hammer },
   { id: "team", label: "Équipe", icon: Users },
   { id: "messages", label: "Messages", icon: Mail },
+  { id: "simulator", label: "Simulateur", icon: Calculator },
+  { id: "facebook", label: "Facebook", icon: Facebook },
   { id: "settings", label: "Réglages", icon: SettingsIcon },
 ];
 
@@ -93,6 +99,8 @@ export default function Dashboard() {
           {tab === "services" && <ServicesAdmin />}
           {tab === "team" && <TeamAdmin />}
           {tab === "messages" && <MessagesAdmin />}
+          {tab === "simulator" && <SimulatorAdmin />}
+          {tab === "facebook" && <FacebookAdmin />}
           {tab === "settings" && <SettingsAdmin />}
         </div>
       </div>

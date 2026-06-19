@@ -4,11 +4,16 @@ import {
   Building2,
   PaintRoller,
   Grid3x3,
+  Grid2x2,
   TreePine,
   Wrench,
   Ruler,
   HardHat,
   Truck,
+  Home,
+  Brush,
+  Fence,
+  Waves,
   LucideProps,
   LucideIcon,
 } from "lucide-react";
@@ -20,11 +25,16 @@ const MAP: Record<string, LucideIcon> = {
   Building2,
   PaintRoller,
   Grid3x3,
+  Grid2x2,
   TreePine,
   Wrench,
   Ruler,
   HardHat,
   Truck,
+  Home,
+  Brush,
+  Fence,
+  Waves,
 };
 
 export const ICON_NAMES = Object.keys(MAP);

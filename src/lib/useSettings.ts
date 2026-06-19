@@ -6,10 +6,10 @@ let cache: Settings | null = null;
 
 const FALLBACK: Settings = {
   company_name: "Sarl 2F Général",
-  tagline: "L'art de bâtir, la passion du détail",
+  tagline: "Des fondations aux finitions",
   email: "contact@2fgeneral.fr",
   phone: "06 00 00 00 00",
-  address: "Marignane, Bouches-du-Rhône (13)",
+  address: "3 boulevard Georges Clemenceau, 13700 Marignane",
 };
 
 /** Charge (et met en cache) les réglages publics du site. */

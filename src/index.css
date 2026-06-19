@@ -49,3 +49,30 @@
   background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 18px 18px;
 }
+
+/* Dégradé de texte signature (ocre) */
+.text-gradient-clay {
+  @apply bg-gradient-to-r from-clay-500 to-clay-700 bg-clip-text text-transparent;
+}
+
+/* Barre de défilement aux couleurs de la marque (desktop) */
+@media (min-width: 1024px) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d09356 #f2ece4;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f2ece4;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(#d09356, #994f29);
+    border-radius: 9999px;
+    border: 2px solid #f2ece4;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(#c67c3a, #7c4127);
+  }
+}
